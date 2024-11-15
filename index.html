@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lettera agli Studenti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: red;
+        }
+        #letter {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lettera agli Studenti</h1>
+
+    <div id="letter">
+        <p>Carissimi studenti,</p>
+        <p>Vi scrivo per esprimere una mia profonda preoccupazione riguardo al brusio e alla confusione che si verificano spesso durante le ore di laboratorio. Questo rumore rende difficile concentrarsi e compromette l'efficacia del nostro lavoro.</p>
+        <p>Durante le lezioni di laboratorio, è essenziale che ci sia un ambiente tranquillo e produttivo per tutti. Il rispetto reciproco è fondamentale per permettere a ciascuno di concentrarsi e svolgere al meglio le attività assegnate.</p>
+        <p>Vi chiedo quindi di prestare maggiore attenzione al comportamento collettivo e di ridurre al minimo le distrazioni. Un buon ambiente di studio è fondamentale per il nostro successo.</p>
+        <p>Confido nel vostro impegno e nella vostra collaborazione. Grazie.</p>
+        <p>Cordiali saluti,<br>Prof. [Tuo Nome]</p>
+    </div>
+
+    <button onclick="evidenzia()">Evidenzia le parti importanti</button>
+
+    <script>
+        function evidenzia() {
+            const paroleDaEvidenziare = [
+                "profonda preoccupazione",
+                "brusio e alla confusione",
+                "ambiente tranquillo",
+                "rispetto reciproco",
+                "comportamento collettivo",
+                "buon ambiente di studio"
+            ];
+
+            const lettera = document.getElementById("letter");
+            let testo = lettera.innerHTML;
+
+            paroleDaEvidenziare.forEach(parola => {
+                const regex = new RegExp(`(${parola})`, 'gi');
+                testo = testo.replace(regex, `<span class="highlight">$1</span>`);
+            });
+
+            lettera.innerHTML = testo;
+        }
+    </script>
+
+</body>
+</html>
